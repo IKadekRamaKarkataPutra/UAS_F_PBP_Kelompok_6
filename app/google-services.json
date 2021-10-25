@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "212620467659",
+    "project_id": "uts-pbp-fbafc",
+    "storage_bucket": "uts-pbp-fbafc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:212620467659:android:218e049e9b907240cc2a4e",
+        "android_client_info": {
+          "package_name": "com.example.uts_pbp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "212620467659-grtcsn4n797hrhnn6dj13gp0blccafo6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAM7xUIe-S_2xFODXCS6EhtCPz-3regD0c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "212620467659-grtcsn4n797hrhnn6dj13gp0blccafo6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
