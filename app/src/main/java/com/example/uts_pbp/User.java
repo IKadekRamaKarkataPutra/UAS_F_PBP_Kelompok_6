@@ -1,7 +1,12 @@
 package com.example.uts_pbp;
 
+import com.google.gson.annotations.SerializedName;
+
 public class User {
-    private String username,password;
+    @SerializedName("username")
+    private String username;
+    @SerializedName("password")
+    private String password;
 
     public User(String username, String password){
         this.username = username;
