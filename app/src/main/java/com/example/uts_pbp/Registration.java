@@ -1,21 +1,24 @@
 package com.example.uts_pbp;
 
-import android.app.Application;
-import android.os.Bundle;
 
-import androidx.annotation.Nullable;
+import android.os.Bundle;
+import android.widget.EditText;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
 
-public class MyApplication extends AppCompatActivity {
+public class Registration extends AppCompatActivity {
     private FirebaseAuth auth;
+    private EditText editName,editEmail,editAlamat,editRek,editPassword;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.input_profile);
 
         auth = FirebaseAuth.getInstance();
+
     }
 }

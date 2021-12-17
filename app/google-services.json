@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "212620467659",
-    "project_id": "uts-pbp-fbafc",
-    "storage_bucket": "uts-pbp-fbafc.appspot.com"
+    "project_number": "174388799079",
+    "project_id": "uas-pbp-6eba8",
+    "storage_bucket": "uas-pbp-6eba8.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:212620467659:android:218e049e9b907240cc2a4e",
+        "mobilesdk_app_id": "1:174388799079:android:405446ff6d8d03d947d6c2",
         "android_client_info": {
           "package_name": "com.example.uts_pbp"
         }
       },
       "oauth_client": [
         {
-          "client_id": "212620467659-grtcsn4n797hrhnn6dj13gp0blccafo6.apps.googleusercontent.com",
+          "client_id": "174388799079-03na3mbskod0tfdvm3f96gj5iuqkr27h.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAM7xUIe-S_2xFODXCS6EhtCPz-3regD0c"
+          "current_key": "AIzaSyAfMCds2x-GVvqfoqm3WZSflJS37jC6GFo"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "212620467659-grtcsn4n797hrhnn6dj13gp0blccafo6.apps.googleusercontent.com",
+              "client_id": "174388799079-03na3mbskod0tfdvm3f96gj5iuqkr27h.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

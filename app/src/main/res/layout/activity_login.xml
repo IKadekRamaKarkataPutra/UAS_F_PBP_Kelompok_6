@@ -72,11 +72,23 @@
         android:layout_height="46dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginLeft="155dp"
-        android:layout_marginTop="615dp"
+        android:layout_marginLeft="72dp"
+        android:layout_marginTop="612dp"
         android:background="@color/button1"
         android:elevation="4dp"
         android:text="Log In" />
+
+    <Button
+        android:id="@+id/btnRegis"
+        android:layout_width="146dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="196dp"
+        android:layout_marginTop="613dp"
+        android:background="@color/button1"
+        android:elevation="4dp"
+        android:text="Registration" />
 
     <Button
         android:id="@+id/btnClear"

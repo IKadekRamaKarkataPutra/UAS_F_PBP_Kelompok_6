@@ -110,17 +110,17 @@
             android:hint="alamat"
             android:text="@{prfl.input_alamat}" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="52dp"
-        android:layout_marginTop="325dp"
-        android:gravity="center_horizontal|top"
-        android:lineSpacingExtra="0sp"
-        android:text="No.Rekening(Wajib)"
-        android:textStyle="bold" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="52dp"
+            android:layout_marginTop="325dp"
+            android:gravity="center_horizontal|top"
+            android:lineSpacingExtra="0sp"
+            android:text="No.Rekening(Wajib)"
+            android:textStyle="bold" />
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/rekening"
@@ -139,6 +139,35 @@
             android:background="@color/white"
             android:text="@{prfl.input_rekening}" />
 
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="51dp"
+            android:layout_marginTop="420dp"
+            android:gravity="center_horizontal|top"
+            android:lineSpacingExtra="0sp"
+            android:text="Password"
+            android:textStyle="bold" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/password"
+            android:layout_width="285dp"
+            android:layout_height="52dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="51dp"
+            android:layout_marginLeft="51dp"
+            android:layout_marginTop="451dp"
+            android:layout_marginEnd="75dp"
+            android:background="@color/white"
+            android:hint="password"
+            android:inputType="text"
+            android:text="@{prfl.input_rekening}" />
 
         <Button
             android:id="@+id/btnConfirm"
