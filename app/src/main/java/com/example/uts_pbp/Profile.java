@@ -11,17 +11,18 @@ public class Profile extends BaseObservable {
     public String input_email;
     public String input_alamat;
     public String input_rekening;
+    public String input_password;
 
 
     public Profile(){}
 
-    public Profile(String input_nama, String input_email, String input_alamat, String input_rekening)
-
+    public Profile(String input_nama, String input_email, String input_alamat, String input_rekening, String input_password)
     {
         this.input_nama = input_nama;
         this.input_email = input_email;
         this.input_alamat = input_alamat;
         this.input_rekening = input_rekening;
+        this.input_password = input_password;
     }
 
     @Bindable
@@ -58,5 +59,13 @@ public class Profile extends BaseObservable {
     {
         this.input_rekening=input_rekening;
         notifyPropertyChanged(BR.input_rekening);
+    }
+
+    @Bindable
+    public String getInput_password(){return  input_password;}
+    public void setInput_password(String input_password)
+    {
+        this.input_password=input_password;
+        notifyPropertyChanged(BR.input_password);
     }
 }

@@ -21,13 +21,14 @@ public class InputProfile extends AppCompatActivity {
     
     private User user;
     private UserPreferences userPreferences;
-    private Button btnLogout;
+    private Button btnLogout,btnConfirm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.input_profile);
         userPreferences = new UserPreferences (InputProfile.this);
+        btnConfirm = findViewById(R.id.btnConfirm);
 
         btnLogout = findViewById(R.id.btnLogout);
         prfl = new Profile();
