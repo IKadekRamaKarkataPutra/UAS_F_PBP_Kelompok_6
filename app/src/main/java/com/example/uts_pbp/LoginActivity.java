@@ -7,21 +7,25 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class LoginActivity extends AppCompatActivity {
     private EditText input_username, input_password;
     private Button btnClear, btnLogin;
-    private UserPreferences userPreferences;
+
+    private FirebaseAuth lAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
-        userPreferences = new UserPreferences(LoginActivity.this);
 
         input_username = findViewById(R.id.input_username);
         input_password = findViewById(R.id.input_password);
@@ -29,46 +33,57 @@ public class LoginActivity extends AppCompatActivity {
         btnClear = findViewById(R.id.btnClear);
         btnLogin = findViewById(R.id.btnLogin);
 
-        checkLogin();
+        lAuth = FirebaseAuth.getInstance();
 
-        btnClear.setOnClickListener(new View.OnClickListener(){
+    }
+    public void onClick(View v){
+        switch (v.getId()){
+            case R.id.btnLogin:
+                Login();
+                break;
+
+            case R.id.btnRegis:
+                startActivity(new Intent(this,Registration.class));
+                break;
+        }
+    }
+
+    private void Login() {
+        String email = input_username.getText().toString().trim();
+        String password = input_password.getText().toString().trim();
+
+
+        if(email.isEmpty()){
+            input_username.setError("Email harus diisi!");
+            input_username.requestFocus();
+            return;
+        }
+
+        if(password.isEmpty()){
+            input_password.setError("password harus diisi!");
+            input_password.requestFocus();
+            return;
+        }
+
+        lAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
-            public void onClick(View view){
-                input_username.setText("");
-                input_password.setText("");
-            }
-        });
-
-        btnLogin.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view) {
-                if(validateForm()) {
-                    if (input_username.getText().toString().trim().equals("admin")
-                            && input_password.getText().toString().trim().equals("1234")) {
-
-                        userPreferences.setLogin(input_username.getText().toString().trim(),input_password.getText().toString().trim());
-                        checkLogin();
-                    } else {
-                        Toast.makeText(LoginActivity.this, " Username atau Password salah", Toast.LENGTH_SHORT).show();
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if(task.isSuccessful()){
+                    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                    if(user.isEmailVerified()){
+                        startActivity(new Intent(LoginActivity.this, Saldo.class));
+                    }else{
+                        user.sendEmailVerification();
+                        Toast.makeText(LoginActivity.this,"Check your email Verif",Toast.LENGTH_LONG).show();
                     }
+
+                }else{
+                    Toast.makeText(LoginActivity.this,"Failed to Login check your email/password",Toast.LENGTH_LONG).show();
                 }
             }
         });
     }
 
-    private boolean validateForm(){
 
-        if(input_username.getText().toString().trim().isEmpty() || input_password.getText().toString().trim().isEmpty()){
-            Toast.makeText(LoginActivity.this, "Username atau Password Kosong", Toast.LENGTH_SHORT).show();
-            return false;
-        }
-        return true;
-    }
 
-    private void checkLogin(){
-        if(userPreferences.checkLogin()){
-            startActivity(new Intent(LoginActivity.this, InputProfile.class));
-            finish();
-        }
-    }
 }

@@ -1,9 +1,10 @@
 package com.example.uts_pbp;
 
-
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -19,6 +20,9 @@ import com.google.firebase.database.FirebaseDatabase;
 public class Registration extends AppCompatActivity {
     private FirebaseAuth auth;
     private EditText editName,editEmail,editAlamat,editRek,editPassword;
+    private Button regis;
+    private Button login;
+    private Button logout;
 
 
     @Override
@@ -28,15 +32,39 @@ public class Registration extends AppCompatActivity {
 
         auth = FirebaseAuth.getInstance();
 
+        regis = (Button) findViewById(R.id.btnRegis);
+        regis.setOnClickListener((View.OnClickListener) this);
+
         editName = (EditText) findViewById(R.id.nama);
         editEmail = (EditText) findViewById(R.id.email);
         editAlamat = (EditText) findViewById(R.id.alamat);
         editRek = (EditText) findViewById(R.id.rekening);
         editPassword = (EditText) findViewById(R.id.password);
+        logout = (Button) findViewById(R.id.btnLogout);
+
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FirebaseAuth.getInstance().signOut();
+                startActivity(new Intent(Registration.this, LoginActivity.class));
+            }
+        });
 
     }
 
-    private void registerUser (){
+    public void onClick(View v){
+        switch (v.getId()){
+            case R.id.btnLogin:
+                startActivity(new Intent(this,Saldo.class));
+                break;
+
+            case R.id.btnRegis:
+                register();
+                break;
+        }
+    }
+
+    private void register() {
         String name = editName.getText().toString().trim();
         String email = editEmail.getText().toString().trim();
         String alamat = editAlamat.getText().toString().trim();
@@ -66,8 +94,8 @@ public class Registration extends AppCompatActivity {
             return;
         }
         if(password.isEmpty()){
-            editRek.setError("password harus diisi!");
-            editRek.requestFocus();
+            editPassword.setError("password harus diisi!");
+            editPassword.requestFocus();
             return;
         }
 
@@ -84,15 +112,16 @@ public class Registration extends AppCompatActivity {
                         public void onComplete(@NonNull Task<Void> task) {
 
                             if(task.isSuccessful()){
-                                Toast.makeText( registerUser.this,"Akun berhasil didaftar ", Toast.LENGTH_LONG).show();
+                                Toast.makeText(Registration.this,"Berhasil membuat akun!!",Toast.LENGTH_LONG).show();
+
                             }else {
-                                Toast.makeText( registerUser.this,"Akun gagal didaftar ", Toast.LENGTH_LONG).show();
+                                Toast.makeText(Registration.this,"Gagal membuat akun!!",Toast.LENGTH_LONG).show();
                             }
                         }
                     });
 
                 }else{
-                    Toast.makeText( registerUser.this,"Akun gagal didaftar ", Toast.LENGTH_LONG).show();
+                    Toast.makeText(Registration.this,"Gagal membuat akun!!",Toast.LENGTH_LONG).show();
                 }
             }
         });
