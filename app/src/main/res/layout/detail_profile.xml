@@ -41,6 +41,7 @@
             android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/detailnama"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
@@ -64,6 +65,7 @@
             android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/detailemail"
             android:layout_width="199dp"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
@@ -88,6 +90,7 @@
             android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/detailalamat"
             android:layout_width="208dp"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
@@ -112,6 +115,7 @@
             android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/detailrekening"
             android:layout_width="208dp"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
